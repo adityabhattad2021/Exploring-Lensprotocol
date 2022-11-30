@@ -3,8 +3,8 @@ import { createClient } from "urql";
 const APIURL = "https://api.lens.dev";
 
 export const client = createClient({
-    url:APIURL
-})
+	url: APIURL,
+});
 
 export const recommendedProfiles = `
     query RecommendedProfiles {
@@ -91,10 +91,9 @@ export const recommendedProfiles = `
   }
 `;
 
-export function getProfile(id){
-    const query=`
-    query Profiles {
-        profiles(request: { profileIds: ["0x01"], limit: 10 }) {
+export const getProfile = `
+    query Profiles($id:ProfileId!) {
+        profiles(request: { profileIds: [$id], limit: 10 }) {
           items {
             id
             name
@@ -182,7 +181,4 @@ export function getProfile(id){
           }
         }
       }
-`
-return query
-}
-
+`;

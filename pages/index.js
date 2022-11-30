@@ -25,7 +25,7 @@ export default function Home() {
 		}
 	}
 
-	console.log(profiles[0]?.picture?.original?.url);
+
 	return (
 		<div>
 			{isLoading && <div>Loading...</div>}
@@ -40,6 +40,7 @@ export default function Home() {
 								) ? (
 									<Image
 										src={profile?.picture?.original?.url}
+										alt="Profile Picture"
 										width={60}
 										height={60}
 									/>
