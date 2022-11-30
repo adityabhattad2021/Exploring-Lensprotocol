@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
 import { client, recommendedProfiles } from "../api";
+import { useIsMounted } from "../hooks/useIsMounted";
 import Link from "next/link";
 import Image from "next/image";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 export default function Home() {
+
+	const mounted = useIsMounted();
 	const [profiles, setProfiles] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 
@@ -28,6 +32,11 @@ export default function Home() {
 
 	return (
 		<div>
+			<div style={{margin:"20px",width:"95%",display:"flex",flexDirection:"row-reverse"}}>
+			<ConnectButton
+				showBalance={true}
+			/>
+			</div>
 			{isLoading && <div>Loading...</div>}
 			{!isLoading &&
 				profiles.map((profile, index) => {

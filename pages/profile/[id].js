@@ -2,6 +2,9 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState, useEffect, Fragment } from "react";
 import { client, getProfile, getPublications } from "../../api";
+import CONTRACT_ABI from "../../abi.json";
+
+const CONTRACT_ADDRESS="0xDb46d1Dc155634FbC732f92E853b10B288AD5a1d";
 
 function Profile() {
 	const [profile, setProfile] = useState();
